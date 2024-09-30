@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ livroId ? 'Editar Livro' : 'Novo Livro' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Título do Livro</ion-label>
+    <ion-input [(ngModel)]="livro.titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Autores</ion-label>
+    <ion-select multiple="true" [(ngModel)]="autoresSelecionados" (ionChange)="selecionarAutor($event)">
+      <ion-select-option *ngFor="let autor of autores" [value]="autor.id">{{ autor.nome }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" (click)="salvar()">Salvar</ion-button>
+  <ion-button expand="full" color="danger" *ngIf="livroId" (click)="remover()">Excluir</ion-button>
+</ion-content>

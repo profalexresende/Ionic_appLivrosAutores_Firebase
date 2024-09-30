@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ autorId ? 'Editar Autor' : 'Novo Autor' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome do Autor</ion-label>
+    <ion-input [(ngModel)]="autor.nome"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="salvar()">Salvar</ion-button>
+  <ion-button expand="full" color="danger" *ngIf="autorId" (click)="remover()">Excluir</ion-button>
+</ion-content>

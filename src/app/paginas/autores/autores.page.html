@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Autores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!-- Loop para exibir a lista de autores -->
+    <ion-item *ngFor="let autor of autores">
+      <ion-label>
+        <h2>{{ autor.nome }}</h2>
+        <p>ID: {{ autor.id }}</p>
+      </ion-label>
+
+      <!-- Botão para visualizar os detalhes do autor -->
+      <ion-button fill="outline" slot="end" color="primary" (click)="irParaDetalhes(autor.id)">
+        Detalhes
+      </ion-button>
+
+      <!-- Botão para excluir o autor -->
+      <ion-button fill="outline" slot="end" color="danger" (click)="removerAutor(autor.id)">
+        Excluir
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botão para adicionar um novo autor -->
+  <ion-button expand="full" color="success" (click)="irParaAdicionarAutor()">
+    Adicionar Novo Autor
+  </ion-button>
+</ion-content>

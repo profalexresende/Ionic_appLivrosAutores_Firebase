@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Livros</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/livros-detalhes">Novo Livro</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let livro of livros" (click)="irParaDetalhes(livro)">
+      <ion-label>
+        <h2>{{ livro.titulo }}</h2>
+        <p>Autores: {{ getAutoresFormatados(livro) }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
